@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           SplashView.routeName: (context) => SplashView(),
           LoginView.routeName: (context) => LoginView(),
-          HomeView.routeName: (context) => const HomeView(),
+          HomeView.routeName: (context) => HomeView(),
         },
         initialRoute: SplashView.routeName,
       ),

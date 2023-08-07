@@ -1,0 +1,454 @@
+{
+	"collection": {
+		"info": {
+			"_postman_id": "526e6d5e-a796-4efd-ae82-0d34088aad6e",
+			"name": "belaundry",
+			"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+			"updatedAt": "2023-07-26T08:16:53.000Z",
+			"uid": "13182343-526e6d5e-a796-4efd-ae82-0d34088aad6e"
+		},
+		"item": [
+			{
+				"name": "user",
+				"item": [
+					{
+						"name": "user info",
+						"id": "4ae61afd-4cd2-4429-bcdb-f442c5ca4255",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "GET",
+							"header": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoxLCJpYXQiOjE2OTAzNTc4Mzd9.ILF698ktm1Zw_ssLXsmCAMAGEz3_LIVA3_XWXcHWK0k",
+									"type": "text"
+								}
+							],
+							"body": {
+								"mode": "raw",
+								"raw": "{\n    \"email\"    : \"ovickbs@gmail.com\",\n    \"password\" : \"qwerpilkopi\"\n}",
+								"options": {
+									"raw": {
+										"language": "json"
+									}
+								}
+							},
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/user/info",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"user",
+									"info"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-4ae61afd-4cd2-4429-bcdb-f442c5ca4255"
+					},
+					{
+						"name": "sign up",
+						"id": "2c3445c0-7568-4a22-82b5-9e447b5396d7",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "POST",
+							"header": [
+
+							],
+							"body": {
+								"mode": "raw",
+								"raw": "{\n    \"name\"     : \"Taufik Hidayat\",\n    \"phone\"    : \"6282122104014\",\n    \"email\"    : \"ovickbs@gmail.com\",\n    \"password\" : \"12345678\",\n    \"image_url\": \"\"\n}",
+								"options": {
+									"raw": {
+										"language": "json"
+									}
+								}
+							},
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/user/sign-up",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"user",
+									"sign-up"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-2c3445c0-7568-4a22-82b5-9e447b5396d7"
+					},
+					{
+						"name": "sign in",
+						"id": "05d342f6-83df-4e2e-9296-93b8754d2766",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "POST",
+							"header": [
+
+							],
+							"body": {
+								"mode": "raw",
+								"raw": "{\n    \"email\"    : \"ovickbs@gmail.com\",\n    \"password\" : \"qwerpilkopi\"\n}",
+								"options": {
+									"raw": {
+										"language": "json"
+									}
+								}
+							},
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/user/sign-in",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"user",
+									"sign-in"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-05d342f6-83df-4e2e-9296-93b8754d2766"
+					}
+				],
+				"id": "c8b23d63-2ff1-411d-9775-33cfbb8c6a20",
+				"uid": "13182343-c8b23d63-2ff1-411d-9775-33cfbb8c6a20"
+			},
+			{
+				"name": "product",
+				"item": [
+					{
+						"name": "get category",
+						"id": "9bf26c6e-0a04-4e5b-9883-a6ce3b6bbc97",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "GET",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product/categories",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product",
+									"categories"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-9bf26c6e-0a04-4e5b-9883-a6ce3b6bbc97"
+					},
+					{
+						"name": "get all product",
+						"id": "88c79b11-2004-4075-97a6-c6ef1c607b63",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "GET",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-88c79b11-2004-4075-97a6-c6ef1c607b63"
+					},
+					{
+						"name": "find product",
+						"id": "b07bb303-5b90-4f62-b79b-5a80c6d64c10",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "GET",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product/48",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product",
+									"48"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-b07bb303-5b90-4f62-b79b-5a80c6d64c10"
+					},
+					{
+						"name": "create new product",
+						"id": "7e857ec7-c528-485f-b029-02eb2fb5a05f",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "POST",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"body": {
+								"mode": "raw",
+								"raw": "{\n    \"name\"        : \"Sendal Swallow Biru\",\n    \"description\" : \"Sendal Swallow Biru no.12\",\n    \"sku\"         : \"SWBL\",\n    \"stock\"       : 2,\n    \"category_id\" : 2,\n    \"price\"       : 12000,\n    \"image\"       : \"https://m.media-amazon.com/images/I/51FIaqed1eL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg\"\n}\n\n\n\n\n\n\n",
+								"options": {
+									"raw": {
+										"language": "json"
+									}
+								}
+							},
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-7e857ec7-c528-485f-b029-02eb2fb5a05f"
+					},
+					{
+						"name": "update product",
+						"id": "2cd9a963-9cf6-4587-acdf-51f326fdd99b",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "PUT",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"body": {
+								"mode": "raw",
+								"raw": "{\n    \"price\": 15000\n}",
+								"options": {
+									"raw": {
+										"language": "json"
+									}
+								}
+							},
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product/48",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product",
+									"48"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-2cd9a963-9cf6-4587-acdf-51f326fdd99b"
+					},
+					{
+						"name": "delete product",
+						"id": "4ffc7374-7897-4bbf-97a1-e53b8b9ad4ff",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "DELETE",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product/47",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product",
+									"47"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-4ffc7374-7897-4bbf-97a1-e53b8b9ad4ff"
+					}
+				],
+				"id": "218c7283-d093-4b9a-b989-f9dbeedaf83f",
+				"uid": "13182343-218c7283-d093-4b9a-b989-f9dbeedaf83f"
+			},
+			{
+				"name": "report",
+				"item": [
+					{
+						"name": "product sold",
+						"id": "598872bf-f720-4c5c-8d97-9692d7321780",
+						"protocolProfileBehavior": {
+							"disableBodyPruning": true
+						},
+						"request": {
+							"method": "GET",
+							"header": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							],
+							"url": {
+								"raw": "https://belaundry-api.sebaris.link/platform/product/report",
+								"protocol": "https",
+								"host": [
+									"belaundry-api",
+									"sebaris",
+									"link"
+								],
+								"path": [
+									"platform",
+									"product",
+									"report"
+								]
+							}
+						},
+						"response": [
+
+						],
+						"uid": "13182343-598872bf-f720-4c5c-8d97-9692d7321780"
+					}
+				],
+				"id": "d7d320ff-7541-4ee0-8e05-00f6f9490d2c",
+				"uid": "13182343-d7d320ff-7541-4ee0-8e05-00f6f9490d2c"
+			}
+		],
+		"event": [
+			{
+				"listen": "prerequest",
+				"script": {
+					"id": "98c55387-669e-476b-b624-d477cab60737",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			},
+			{
+				"listen": "test",
+				"script": {
+					"id": "03246879-ee58-41f6-ae4c-1449186faa29",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			}
+		],
+		"variable": [
+			{
+				"id": "6d99529f-51c9-44c2-a8ff-85161ffe52f6",
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoxLCJpYXQiOjE2OTAzNTc4Mzd9.ILF698ktm1Zw_ssLXsmCAMAGEz3_LIVA3_XWXcHWK0k",
+				"type": "string"
+			}
+		]
+	},
+	"info": {
+		"name": "",
+		"schema": ""
+	},
+	"item": []
+}

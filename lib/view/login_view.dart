@@ -13,12 +13,12 @@ class LoginView extends StatelessWidget {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
+
   final lColor = LColor();
   final lStyle = LTextStyle();
   bool isPasswordObscure = true;
-
-  final FocusNode emailFocusNode = FocusNode();
-  final FocusNode passwordFocusNode = FocusNode();
 
   void initController(BuildContext context) {
     controller = context.read<LoginController>();
@@ -64,11 +64,11 @@ class LoginView extends StatelessWidget {
           floatingLabelBehavior: FloatingLabelBehavior.never,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(9),
-            borderSide: BorderSide(color: lColor.gray, width: 1),
+            borderSide: BorderSide(color: lColor.lightSilver, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(9),
-            borderSide: BorderSide(color: lColor.gray, width: 1),
+            borderSide: BorderSide(color: lColor.lightSilver, width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.red, width: 2),
