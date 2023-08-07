@@ -1,9 +1,16 @@
+import 'package:be_laundry/controller/login_controller.dart';
 import 'package:be_laundry/util/color.dart';
 import 'package:be_laundry/util/textstyle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
+  static const routeName = 'login-view';
+  LoginController controller = LoginController();
+
+  LoginView({super.key});
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final lColor = LColor();
@@ -13,25 +20,61 @@ class LoginView extends StatelessWidget {
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: lColor.vividCerulean,
-      body: Stack(
-        children: [
-          Image.asset("assets/images/login_bg.png"),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 85),
-              buildLoginTitle(),
-              const SizedBox(height: 42),
-              Expanded(
-                child: buildLoginSection(),
-              ),
-            ],
-          )
-        ],
+  void initController(BuildContext context) {
+    controller = context.read<LoginController>();
+    controller.initContext(context);
+    controller.initControllerNode(
+      emailController,
+      passwordController,
+      emailFocusNode,
+      passwordFocusNode,
+    );
+  }
+
+  Widget buildTextField({
+    required String labelText,
+    required String hintText,
+    required TextEditingController controller,
+    required FocusNode focusNode,
+    String? Function(String?)? validator,
+    TextInputType textInputType = TextInputType.emailAddress,
+    bool? isObscuredText = false,
+    bool? isEnable = true,
+  }) {
+    return Material(
+      borderRadius: BorderRadius.circular(8),
+      child: TextFormField(
+        enabled: isEnable,
+        controller: controller,
+        focusNode: focusNode,
+        keyboardType: textInputType,
+        textInputAction: TextInputAction.next,
+        obscureText: isObscuredText!,
+        validator: validator,
+        style: lStyle.regular,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+          hintText: hintText,
+          hintStyle: lStyle.regular,
+          labelText: labelText,
+          labelStyle: lStyle.regular,
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(9),
+            borderSide: BorderSide(color: lColor.gray, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(9),
+            borderSide: BorderSide(color: lColor.gray, width: 1),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red, width: 2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
       ),
     );
   }
@@ -125,7 +168,7 @@ class LoginView extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           TextButton(
-            onPressed: () {},
+            onPressed: () => controller.navigateHome(),
             style: TextButton.styleFrom(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
@@ -149,50 +192,26 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget buildTextField({
-    required String labelText,
-    required String hintText,
-    required TextEditingController controller,
-    required FocusNode focusNode,
-    String? Function(String?)? validator,
-    TextInputType textInputType = TextInputType.emailAddress,
-    bool? isObscuredText = false,
-    bool? isEnable = true,
-  }) {
-    return Material(
-      borderRadius: BorderRadius.circular(8),
-      child: TextFormField(
-        enabled: isEnable,
-        controller: controller,
-        focusNode: focusNode,
-        keyboardType: textInputType,
-        textInputAction: TextInputAction.next,
-        obscureText: isObscuredText!,
-        validator: validator,
-        style: lStyle.regular,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 8,
-            horizontal: 16,
-          ),
-          hintText: hintText,
-          hintStyle: lStyle.regular,
-          labelText: labelText,
-          labelStyle: lStyle.regular,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(9),
-            borderSide: BorderSide(color: lColor.gray, width: 1),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(9),
-            borderSide: BorderSide(color: lColor.gray, width: 1),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.red, width: 2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
+  @override
+  Widget build(BuildContext context) {
+    initController(context);
+    return Scaffold(
+      backgroundColor: lColor.vividCerulean,
+      body: Stack(
+        children: [
+          Image.asset("assets/images/login_bg.png"),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 85),
+              buildLoginTitle(),
+              const SizedBox(height: 42),
+              Expanded(
+                child: buildLoginSection(),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
