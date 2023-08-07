@@ -1,5 +1,6 @@
+import 'package:be_laundry/controller/home_model.dart';
 import 'package:be_laundry/view/home_view.dart';
-import 'package:be_laundry/view/model/home_model.dart';
+import 'package:be_laundry/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,12 +14,9 @@ class MyApp extends StatelessWidget {
         HomeModel();
       },
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // is not restarted.
-          primarySwatch: Colors.blue,
-        ),
-        home: const HomeView(title: 'Flutter Demo Home Page'),
+        title: 'Be Laundry',
+        theme: ThemeData(fontFamily: "Poppins"),
+        home: LoginView(),
       ),
     );
   }
