@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           LoginView.routeName: (context) => LoginView(),
           HomeView.routeName: (context) => HomeView(),
         },
-        initialRoute: Splash.routeName,
+        initialRoute: SplashView.routeName,
       ),
     );
   }
