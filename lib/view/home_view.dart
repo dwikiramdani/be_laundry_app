@@ -1,12 +1,17 @@
+import 'package:be_laundry/controller/home_controller.dart';
 import 'package:be_laundry/util/color.dart';
 import 'package:be_laundry/util/textstyle.dart';
+import 'package:be_laundry/view/order_summary_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatelessWidget {
   static const routeName = 'home-view';
 
   HomeView({super.key});
+
+  HomeController controller = HomeController();
 
   final lColor = LColor();
   final lStyle = LTextStyle();
@@ -160,7 +165,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget buildLatestOrder() {
+  Widget buildLatestOrder(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -234,45 +239,50 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 95,
-                  width: 90,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: lColor.vividCerulean,
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(5),
-                      topRight: Radius.circular(5),
-                    ),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: const Alignment(0.8, 1),
-                      colors: <Color>[
-                        lColor.vividCerulean.withOpacity(1),
-                        lColor.vividCerulean.withOpacity(.42),
-                      ],
-                      tileMode: TileMode.mirror,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Image(
-                        image: AssetImage("assets/images/note.png"),
-                        fit: BoxFit.cover,
-                        width: 46,
-                        height: 46,
+                GestureDetector(
+                  onTap: () {
+                    controller.navigateOrderSummary();
+                  },
+                  child: Container(
+                    height: 95,
+                    width: 90,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: lColor.vividCerulean,
+                      borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(5),
+                        topRight: Radius.circular(5),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "INVOICE",
-                        style: TextStyle(
-                          fontSize: 10.45,
-                          fontWeight: FontWeight.w500,
-                          color: lColor.white,
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: const Alignment(0.8, 1),
+                        colors: <Color>[
+                          lColor.vividCerulean.withOpacity(1),
+                          lColor.vividCerulean.withOpacity(.42),
+                        ],
+                        tileMode: TileMode.mirror,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Image(
+                          image: AssetImage("assets/images/note.png"),
+                          fit: BoxFit.cover,
+                          width: 46,
+                          height: 46,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 8),
+                        Text(
+                          "INVOICE",
+                          style: TextStyle(
+                            fontSize: 10.45,
+                            fontWeight: FontWeight.w500,
+                            color: lColor.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -476,6 +486,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller = context.read<HomeController>();
+    controller.initContext(context);
     return Scaffold(
       backgroundColor: lColor.pastelRed,
       body: SingleChildScrollView(
@@ -497,7 +509,7 @@ class HomeView extends StatelessWidget {
                   buildUserStatusCard(),
                   buildServiceList(),
                   const SizedBox(height: 40),
-                  buildLatestOrder(),
+                  buildLatestOrder(context),
                   buildMostOrdered(),
                   const SizedBox(height: 40),
                   buildLatestProduct(),

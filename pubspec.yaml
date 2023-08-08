@@ -94,6 +94,20 @@ flutter:
         - asset: assets/font/Poppins/Poppins-SemiBoldItalic.ttf
         - asset: assets/font/Poppins/Poppins-Thin.ttf
         - asset: assets/font/Poppins/Poppins-ThinItalic.ttf
+
+    - family: Roboto
+      fonts:
+        - asset: assets/font/Roboto/Roboto-Black.ttf
+        - asset: assets/font/Roboto/Roboto-BlackItalic.ttf
+        - asset: assets/font/Roboto/Roboto-Bold.ttf
+        - asset: assets/font/Roboto/Roboto-BoldItalic.ttf
+        - asset: assets/font/Roboto/Roboto-Italic.ttf
+        - asset: assets/font/Roboto/Roboto-Light.ttf
+        - asset: assets/font/Roboto/Roboto-Medium.ttf
+        - asset: assets/font/Roboto/Roboto-MediumItalic.ttf
+        - asset: assets/font/Roboto/Roboto-Regular.ttf
+        - asset: assets/font/Roboto/Roboto-Thin.ttf
+        - asset: assets/font/Roboto/Roboto-ThinItalic.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
