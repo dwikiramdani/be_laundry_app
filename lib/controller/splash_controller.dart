@@ -9,11 +9,12 @@ class SplashController extends ChangeNotifier {
   }
 
   Future<void> initScreen() async {
-    await Future.delayed(const Duration(seconds: 2));
-    Navigator.pushNamedAndRemoveUntil(
-      context!,
-      LoginView.routeName,
-      (route) => false,
-    );
+    await Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushNamedAndRemoveUntil(
+        context!,
+        LoginView.routeName,
+        (route) => false,
+      );
+    });
   }
 }
